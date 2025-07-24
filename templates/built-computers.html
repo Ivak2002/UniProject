@@ -1,57 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="reset-styles.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Product GPU</title>
-</head>
-
-<body class="home-page">
-    <header>
-        <div class="container">
-            <div class="wrapper">
-                <div class="shadow">
-                    <img src="images/Logo.png" alt="IvakaComputers Logo" class="logo" />
-                </div>
-                <nav class="top-nav">
-                    <a href="#">Home</a>
-                    <a href="#">Help</a>
-                    <a href="#">About Us</a>
-                    <a href="#">Login</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <section class="section-container">
-        <nav class="nav-container">
-            <a href="#">CPU</a>
-            <a href="#">GPU</a>
-            <a href="#">Motherboards</a>
-            <a href="#">RAM</a>
-            <a href="#">Built Computers</a>
-            <a href="#">HOT DEALS</a>
-        </nav>
-    </section>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
     <article>
         <section class="section-one product-section">
             <div class="item">
-                <h3>ASRock B450M Pro4 R2.0</h3>
-                <img class="image-product" src="images/asrock_radeon_rx_6600_xt_challenger_d_8gb.png"
-                    alt="flashy high end gam computer" />
+                <h3>AMD RYZEN 5 5500</h3>
+                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}"
+                     alt="flashy high end gam computer"/>
                 <section class="section-product-desc">
                     <div>
                         <li>
-                            8GB DDR6
+                            6 cores / 12 threads
                         </li>
                         <li>
-                            128-bit
+                            3.60 - 4.20GHz
                         </li>
                         <li>
-                            HDMI
+                            16MB L3 cache
                         </li>
                     </div>
                     <div>
@@ -63,19 +28,18 @@
                 </span>
             </div>
             <div class="item">
-                <h3>ASRock B550M Pro4</h3>
-                <img class="image-product" src="images/msi_geforce_rtx_3050_ventus_2x_xs_8g_oc.png"
-                    alt="people holding hands" />
+                <h3>AMD RYZEN 5 5600</h3>
+                <img class="image-product" src="{% static '' %}" alt="people holding hands"/>
                 <section class="section-product-desc">
                     <div>
                         <li>
-                            8GB GDDR6 128-bit
+                            6 cores / 12 threads
                         </li>
                         <li>
-                            PCI Express 4.0
+                            3.60 - 4.20GHz
                         </li>
                         <li>
-                            Boost Clock: 1807MHz
+                            16MB L3 cache
                         </li>
                     </div>
                     <div>
@@ -87,18 +51,19 @@
                 </span>
             </div>
             <div class="item">
-                <h3>MSI B550-A PRO</h3>
-                <img class="image-product" src="images/600.png" alt="people building an insane pc" />
+                <h3>AMD RYZEN 5 5600X</h3>
+                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}"
+                     alt="people building an insane pc"/>
                 <section class="section-product-desc">
                     <div>
                         <li>
-                            16GB GDDR7 128-bit
+                            6 cores / 12 threads
                         </li>
                         <li>
-                            4608 CUDA Cores
+                            3.60 - 4.20GHz
                         </li>
                         <li>
-                            DisplayPort 2.1b
+                            16MB L3 cache
                         </li>
                     </div>
                     <div>
@@ -110,19 +75,18 @@
                 </span>
             </div>
             <div class="item">
-                <h3>GIGABYTE X670E AORUS Master</h3>
-                <img class="image-product" src="images/asus_dual_radeon_rx_7800_xt_oc_edition_16gb.png"
-                    alt="man building a pc" />
+                <h3>AMD RYZEN 7 5700</h3>
+                <img class="image-product" src="{% static 'images/amd_ryzen_7_5700.png' %}" alt="man building a pc"/>
                 <section class="section-product-desc">
                     <div>
                         <li>
-                            AMD X670
+                            6 cores / 12 threads
                         </li>
                         <li>
-                            4 X DIMM DDR5 slots
+                            3.60 - 4.20GHz
                         </li>
                         <li>
-                            USB TYPE C + DisplayPort
+                            16MB L3 cache
                         </li>
                     </div>
                     <div>
@@ -134,18 +98,19 @@
                 </span>
             </div>
             <div class="item">
-                <h3>GIGABYTE X870E AORUS MASTER</h3>
-                <img class="image-product" src="images/449150.jpg" alt="customer support workers" />
+                <h3>AMD RYZEN 9 7950X3D</h3>
+                <img class="image-product" src="{% static 'images/amd_ryzen_9_7950x3d.png' %}"
+                     alt="customer support workers"/>
                 <section class="section-product-desc">
                     <div>
                         <li>
-                            AMD5 socket
+                            6 cores / 12 threads
                         </li>
                         <li>
-                            AMD X870E ATX
+                            3.60 - 4.20GHz
                         </li>
                         <li>
-                           4X DDR5 slots
+                            16MB L3 cache
                         </li>
                     </div>
                     <div>
@@ -157,19 +122,19 @@
                 </span>
             </div>
             <div class="item">
-                <h3>ASUS ROG Strix Z890-E Gaming WiFi</h3>
-                <img class="image-product" src="images/p01229_pic2_166067a02b119ca02.png"
-                    alt="a man making an X with his hands" />
+                <h3>AMD RYZEN 5 5600G</h3>
+                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}"
+                     alt="a man making an X with his hands"/>
                 <section class="section-product-desc">
                     <div>
                         <li>
-                            LGA1851 socket
+                            6 cores / 12 threads
                         </li>
                         <li>
-                            Intel Z890 ATX
+                            3.60 - 4.20GHz
                         </li>
                         <li>
-                            4x DDR5 slots
+                            16MB L3 cache
                         </li>
                     </div>
                     <div>
@@ -182,13 +147,9 @@
             </div>
         </section>
     </article>
-    <footer class="footer">
-        <p>© 2025 Ivaka Computers. All rights reserved.</p>
-    </footer>
-</body>
-<button id="scrollToTopBtn" title="Go to top">
-    <i class="fas fa-chevron-up"></i>
-</button>
-<script src="scroll.js"></script>
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="{% static 'scroll.js' %}"></script>
 
-</html>
+{% endblock %}

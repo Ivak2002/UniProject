@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST" class="form-container login-container">
+        <div class="login-items">
+            <div class="form-group login">
+                <label for="username">Username</label>
+                <input type="text" id="username" minlength="5" maxlength="15" required />
+            </div>
+            <div class="form-group login">
+                <label for="password">Password</label>
+                <input type="password" id="password" required />
+            </div>
+        </div>
+        <div class="form-group buttons login-buttons">
+            <button type="reset">Reset</button>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+    <footer class="footer">
+        <p>© 2025 Ivaka Computers. All rights reserved.</p>
+    </footer>
+{% endblock %}
