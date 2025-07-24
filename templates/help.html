@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST" class="form-container">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="questiontheme">Question Theme</label>
+          <input type="text" id="questiontheme" placeholder="GPU Problem" minlength="3" maxlength="10" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="example@gmail.com" />
+        </div>
+      </div>
+
+      <div class="form-group description">
+        <label for="text">Question Description</label>
+        <textarea id="text" placeholder="My GPU is overheating..." maxlength="200" rows="6"></textarea>
+      </div>
+
+      <div class="form-group buttons">
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+  <footer class="footer">
+    <p>© 2025 Ivaka Computers. All rights reserved.</p>
+  </footer>
+{% endblock %}
