@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="reset-styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Purchase Profile</title>
+</head>
+<body class="home-page">
+  <header>
+    <div class="container">
+      <div class="wrapper">
+        <div class="shadow">
+          <img src="images/Logo.png" alt="IvakaComputers Logo" class="logo" />
+        </div>
+        <nav class="top-nav">
+          <a href="#">Home</a>
+          <a href="#">Help</a>
+          <a href="#">About Us</a>
+          <a href="#">Login</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-container">
+    <nav class="nav-container">
+      <a href="#">CPU</a>
+      <a href="#">GPU</a>
+      <a href="#">Motherboards</a>
+      <a href="#">RAM</a>
+      <a href="#">Built Computers</a>
+      <a href="#">HOT DEALS</a>
+    </nav>
+
+    <form method="POST" class="form-container">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname"  minlength="2" required />
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" minlength="2" required/>
+        </div>
+      </div>
+            <div class="form-row">
+        <div class="form-group">
+          <label for="tel">Telephone</label>
+          <input type="tel" id="tel" placeholder="0892893215" minlength="10" required/>
+        </div>
+        <div class="form-group">
+          <label for="adress">Adress</label>
+          <input type="text" id="adress" required placeholder="ul. Druzhba 1" />
+        </div>
+      </div>
+
+      <div class="form-group description">
+        <label for="text">Additional Information</label>
+        <textarea id="text" maxlength="200" rows="6"></textarea>
+      </div>
+
+      <div class="form-group buttons">
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Ivaka Computers. All rights reserved.</p>
+  </footer>
+</body>
+</html>
