@@ -9,7 +9,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["username", "email", "password1", "password2"]
+        fields = ["username", "email", "password1", "password2", "bio", "birth_date"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -17,13 +17,22 @@ class RegisterForm(UserCreationForm):
             field.widget.attrs.update({
                 'class': 'form-input'
             })
+        self.fields['birth_date'].widget.attrs.update({
+            'placeholder': '2000-02-20',
+        })
+        self.fields['email'].widget.attrs.update({
+            'placeholder': 'example@gmail.com',
+        })
+
+
+
 class CustomLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)  # Only call once!
 
-        self.fields['username'].widget.attrs.update({
-            'class': 'form-input',
-        })
-        self.fields['password'].widget.attrs.update({
-            'class': 'form-input',
-        })
+        for field_name, field in self.fields.items():
+            field.widget.attrs.update({
+                'class': 'form-input',
+                'placeholder': f'Enter your {field.label.lower()}'
+            })
+

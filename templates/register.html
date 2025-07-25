@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="form-container">
+    <div class="form-container register">
     <h2>Register</h2>
     <form method="post" novalidate>
         {% csrf_token %}
-
         {% for field in form %}
         <div class="form-row">
             <div class="form-group">
@@ -20,7 +19,7 @@
             </div>
         </div>
         {% endfor %}
-        <div class="form-group buttons">
+        <div class="form-group buttons  login-buttons">
             <button type="submit">Register</button>
         </div>
     </form>

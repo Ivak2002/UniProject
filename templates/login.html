@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="form-container">
     <form method="post" class="login-items">
     {% csrf_token %}
     <div class="form-row">
@@ -15,5 +16,9 @@
     <div class="form-group buttons login-buttons">
         <button type="submit">Login</button>
     </div>
+        <nav class="top-nav" style="margin-top: 1em ">
+          <a href="{% url 'register' %}"> You don't have an account ? Register here !</a>
+        </nav>
 </form>
+    </div>
 {% endblock %}
