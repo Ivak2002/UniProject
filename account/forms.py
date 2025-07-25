@@ -14,8 +14,10 @@ class RegisterForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
+            label= field.label or field_name.replace("_", " ")
             field.widget.attrs.update({
-                'class': 'form-input'
+                'class': 'form-input',
+                'placeholder': f'Enter your {label.lower()}',
             })
         self.fields['birth_date'].widget.attrs.update({
             'placeholder': '2000-02-20',

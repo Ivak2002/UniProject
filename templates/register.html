@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+    <title>Register</title>
     <div class="form-container register">
     <h2>Register</h2>
     <form method="post" novalidate>
@@ -24,4 +26,8 @@
         </div>
     </form>
     </div>
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <script src="{% static 'scroll.js' %}"></script>
 {% endblock %}
