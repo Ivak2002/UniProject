@@ -1,155 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
-    <title>Product GPU</title>
-    <article>
-        <section class="section-one product-section">
-            <div class="item">
-                <h3>AMD RYZEN 5 5500</h3>
-                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}"
-                     alt="flashy high end gam computer"/>
-                <section class="section-product-desc">
-                    <div>
-                        <li>
-                            6 cores / 12 threads
-                        </li>
-                        <li>
-                            3.60 - 4.20GHz
-                        </li>
-                        <li>
-                            16MB L3 cache
-                        </li>
+    <div class="container border">
+        <article>
+            <section class="section-one product-section">
+                {% for gpu in gpus %}
+                    <div class="item">
+                        <h3>{{ gpu.name }}</h3>
+                        <img class="image-product" src="{{ gpu.image }}" alt="{{ gpu.name }}"/>
+                        <section class="section-product-desc">
+                            <div>
+                                <li>BUS: {{ gpu.bus }}</li>
+                                <li>MEMORY: {{ gpu.memory }}</li>
+                                <li>MEMORY TYPE: {{ gpu.memory_type }}</li>
+                            </div>
+                            <div>
+                                <button type="submit">Buy</button>
+                            </div>
+                        </section>
+                        <span class="price">Price: {{ gpu.price }} €</span>
                     </div>
-                    <div>
-                        <button type="submit">Buy</button>
-                    </div>
-                </section>
-                <span class="price">
-                    Price: 260 €
-                </span>
-            </div>
-            <div class="item">
-                <h3>AMD RYZEN 5 5600</h3>
-                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}" alt="people holding hands"/>
-                <section class="section-product-desc">
-                    <div>
-                        <li>
-                            6 cores / 12 threads
-                        </li>
-                        <li>
-                            3.60 - 4.20GHz
-                        </li>
-                        <li>
-                            16MB L3 cache
-                        </li>
-                    </div>
-                    <div>
-                        <button type="submit">Buy</button>
-                    </div>
-                </section>
-                <span class="price">
-                    Price: 260 €
-                </span>
-            </div>
-            <div class="item">
-                <h3>AMD RYZEN 5 5600X</h3>
-                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}"
-                     alt="people building an insane pc"/>
-                <section class="section-product-desc">
-                    <div>
-                        <li>
-                            6 cores / 12 threads
-                        </li>
-                        <li>
-                            3.60 - 4.20GHz
-                        </li>
-                        <li>
-                            16MB L3 cache
-                        </li>
-                    </div>
-                    <div>
-                        <button type="submit">Buy</button>
-                    </div>
-                </section>
-                <span class="price">
-                    Price: 260 €
-                </span>
-            </div>
-            <div class="item">
-                <h3>AMD RYZEN 7 5700</h3>
-                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}" alt="man building a pc"/>
-                <section class="section-product-desc">
-                    <div>
-                        <li>
-                            6 cores / 12 threads
-                        </li>
-                        <li>
-                            3.60 - 4.20GHz
-                        </li>
-                        <li>
-                            16MB L3 cache
-                        </li>
-                    </div>
-                    <div>
-                        <button type="submit">Buy</button>
-                    </div>
-                </section>
-                <span class="price">
-                    Price: 260 €
-                </span>
-            </div>
-            <div class="item">
-                <h3>AMD RYZEN 9 7950X3D</h3>
-                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}"
-                     alt="customer support workers"/>
-                <section class="section-product-desc">
-                    <div>
-                        <li>
-                            6 cores / 12 threads
-                        </li>
-                        <li>
-                            3.60 - 4.20GHz
-                        </li>
-                        <li>
-                            16MB L3 cache
-                        </li>
-                    </div>
-                    <div>
-                        <button type="submit">Buy</button>
-                    </div>
-                </section>
-                <span class="price">
-                    Price: 260 €
-                </span>
-            </div>
-            <div class="item">
-                <h3>AMD RYZEN 5 5600G</h3>
-                <img class="image-product" src="{% static 'images/amd_ryzen_5_5500.png' %}"
-                     alt="a man making an X with his hands"/>
-                <section class="section-product-desc">
-                    <div>
-                        <li>
-                            6 cores / 12 threads
-                        </li>
-                        <li>
-                            3.60 - 4.20GHz
-                        </li>
-                        <li>
-                            16MB L3 cache
-                        </li>
-                    </div>
-                    <div>
-                        <button type="submit">Buy</button>
-                    </div>
-                </section>
-                <span class="price">
-                    Price: 260 €
-                </span>
-            </div>
-        </section>
-    </article>
+                {% empty %}
+                    <p>No GPUs found.</p>
+                {% endfor %}
+            </section>
+        </article>
+        <div class="pagination" style="text-align: center; margin: 2em 0;">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">&#8592; Previous</a>
+            {% endif %}
+
+            <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" style="margin-left: 2em;">Next &#8594;</a>
+            {% endif %}
+        </div>
+    </div>
+
     <button id="scrollToTopBtn" title="Go to top">
         <i class="fas fa-chevron-up"></i>
     </button>
+
     <script src="{% static 'scroll.js' %}"></script>
 {% endblock %}

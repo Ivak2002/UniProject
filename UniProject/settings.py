@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
-    'common'
+    'common',
+    'products',
 ]
 AUTH_USER_MODEL = 'account.CustomUser'
 MIDDLEWARE = [
