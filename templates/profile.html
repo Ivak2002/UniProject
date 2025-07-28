@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container shadow">
+    <h2>Your Profile</h2>
+    <div class="form-row">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" value="{{ user.username }}" disabled>
+        </div>
+        <div class="form-group">
+            <label>First Name:</label>
+            <input type="text" value="{{ user.first_name }}" disabled>
+        </div>
+        <div class="form-group">
+            <label>Last Name:</label>
+            <input type="text" value="{{ user.last_name }}" disabled>
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" value="{{ user.email }}" disabled>
+        </div>
+
+        {% if user.bio %}
+        <div class="form-group" style="flex: 1 1 100%;">
+            <label>Bio:</label>
+            <textarea disabled>{{ user.bio }}</textarea>
+        </div>
+        {% endif %}
+
+        {% if user.birth_date %}
+        <div class="form-group">
+            <label>Birth Date:</label>
+            <input type="text" value="{{ user.birth_date }}" disabled>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="form-group buttons">
+        <a href="{% url 'edit-profile' %}">
+            <button type="button">Edit Profile</button>
+        </a>
+        <form method="post" action="{% url 'delete-profile' %}">
+            {% csrf_token %}
+            <button type="submit" style="background-color: #a00; box-shadow: 0 0 10px #d00;">Delete Profile</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

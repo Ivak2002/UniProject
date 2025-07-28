@@ -1,6 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.forms import AuthenticationForm
 
 from account.models import CustomUser
@@ -11,7 +10,7 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ["username", "email", "password1", "password2", "bio", "birth_date"]
+        fields = ["username", "email", "password1", "password2", "bio", "birth_date", "first_name", "last_name"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -40,3 +39,15 @@ class CustomLoginForm(AuthenticationForm):
                 'placeholder': f'Enter your {field.label.lower()}'
             })
 
+class CustomUserChangeForm(UserChangeForm):
+
+    class Meta:
+        model = CustomUser
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'bio',
+            'birth_date',
+        ]
