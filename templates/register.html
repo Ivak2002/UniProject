@@ -4,27 +4,55 @@
 {% block content %}
     <title>Register</title>
     <div class="form-container register">
-    <h2>Register</h2>
-    <form method="post" novalidate>
-        {% csrf_token %}
-        {% for field in form %}
-        <div class="form-row">
-            <div class="form-group">
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.help_text and field.name != 'username'%}
-                  <small style="color:#aaa;">{{ field.help_text }}</small>
-                {% endif %}
-                {% for error in field.errors %}
-                  <p style="color: #ff5555;">{{ error }}</p>
-                {% endfor %}
+        <h2>Register</h2>
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                    {% if form.first_name.help_text %}
+                        <small style="color:#aaa;">{{ form.first_name.help_text }}</small>
+                    {% endif %}
+                    {% for error in form.first_name.errors %}
+                        <p style="color: #ff5555;">{{ error }}</p>
+                    {% endfor %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name }}
+                    {% if form.last_name.help_text %}
+                        <small style="color:#aaa;">{{ form.last_name.help_text }}</small>
+                    {% endif %}
+                    {% for error in form.last_name.errors %}
+                        <p style="color: #ff5555;">{{ error }}</p>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-        {% endfor %}
-        <div class="form-group buttons  login-buttons">
-            <button type="submit">Register</button>
-        </div>
-    </form>
+
+            {% for field in form %}
+                {% if field.name != 'first_name' and field.name != 'last_name' %}
+                    <div class="form-row">
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.help_text and field.name != 'username' %}
+                                <small style="color:#aaa;">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <p style="color: #ff5555;">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="form-group buttons login-buttons">
+                <button type="submit">Register</button>
+            </div>
+        </form>
     </div>
     <button id="scrollToTopBtn" title="Go to top">
         <i class="fas fa-chevron-up"></i>

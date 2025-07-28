@@ -1,9 +1,13 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView
+from django.views.generic import  DetailView, UpdateView, DeleteView
 from django.views.generic.edit import FormView
 from django.contrib.auth import login
-from .forms import RegisterForm,CustomLoginForm
+from .forms import RegisterForm, CustomLoginForm, CustomUserChangeForm
+from .models import CustomUser
+
+
 class RegisterView(FormView):
     template_name = 'register.html'
     form_class = RegisterForm
@@ -29,5 +33,29 @@ class CustomLogoutView(LogoutView):
     http_method_names = ['post']
     next_page = 'home'
 
-class SettingsView(TemplateView):
-    template_name = 'settings.html'
+
+class ProfileView(LoginRequiredMixin, DetailView):
+    model = CustomUser
+    template_name = 'profile.html'
+    context_object_name = 'user_profile'
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+class EditProfileView(UpdateView):
+    model = CustomUser
+    form_class = CustomUserChangeForm
+    template_name = 'edit-profile.html'
+    context_object_name = 'user_profile'
+    success_url = reverse_lazy('profile')
+    def get_object(self, queryset=None):
+        return self.request.user
+
+class DeleteProfileView(DeleteView):
+    model = CustomUser
+    template_name = 'delete-profile.html'
+    context_object_name = 'user_profile'
+    success_url = reverse_lazy('profile')
+
+    def get_object(self, queryset=None):
+        return self.request.user
