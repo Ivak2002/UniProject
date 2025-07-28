@@ -508,7 +508,7 @@ body {
 }
 
 .image-product{
-  width: 500px;
+  max-width: 500px;
   margin: auto;
   object-fit: contain;
   max-height: 600px;
