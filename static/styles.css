@@ -150,18 +150,6 @@ h2 {
   color: rgb(250, 249, 246);
 }
 
-.home-page h2::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  background-color: white;
-  width: 840px;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 100%;
-  margin-top: 0.5rem;
-}
-
 .section-two > div {
   flex: 0 0 calc(80% - 3em);
 }
@@ -179,7 +167,7 @@ h2 {
   position: absolute;
   height: 2px;
   background-color: white;
-  width: 400px;
+  width: 800px;
   left: 50%;
   transform: translateX(-50%);
   top: 100%;
@@ -337,8 +325,6 @@ h2 {
   opacity: 40%;
   font-style: oblique;
 }
-
-
 
 .product-section > div {
   flex: 1 1 calc(33% - 3em);
