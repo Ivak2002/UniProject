@@ -41,8 +41,7 @@ body {
 }
 
 .container,
-.nav-container,
-.footer
+.nav-container
 {
   border-bottom: 1px solid white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -122,6 +121,8 @@ span {
   background-color: #1b1b1b;
   border-top: 1px solid white;
   margin-top: 2em;
+  flex-shrink: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .nav-container > a:hover {
@@ -230,7 +231,6 @@ h2 {
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container input[type="password"],
-.form-container input[type="tel"],
 .form-container.login-buttons
 {
   width: 100%;
@@ -338,16 +338,14 @@ h2 {
   font-style: oblique;
 }
 
-img[first-of-type] {
-  width: 900px;
-}
+
 
 .product-section > div {
   flex: 1 1 calc(33% - 3em);
 }
 
 .section-product-desc > div > li {
-  font-size: 1.5em;
+  font-size: 3em;
   font-weight: 500;
   margin-bottom: 0.5em;
 }
@@ -466,4 +464,52 @@ img[first-of-type] {
 
 .user-menu-content form button {
   display: block;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+.pagination a {
+  color: #00ff00;
+  padding: 0.5em 1em;
+  margin: 0 0.3em;
+  border: 1px solid #00ff00;
+  border-radius: 0.3em;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: #00ff00;
+  color: black;
+}
+
+.pagination .current {
+  font-weight: bold;
+  color: white;
+  margin: 0 1em;
+}
+.border{
+  border-bottom: none;
+}
+
+.image-product{
+  width: 500px;
+  margin: auto;
+  object-fit: contain;
+  max-height: 600px;
 }

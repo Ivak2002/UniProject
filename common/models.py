@@ -9,6 +9,7 @@ class HelpModel(models.Model):
         null=False,
         validators=[
             MinLengthValidator(5),
+            MaxLengthValidator(30),
         ],
     )
     email = models.EmailField(
@@ -16,11 +17,13 @@ class HelpModel(models.Model):
         null=False,
     )
     question = models.TextField(
+        max_length=200,
         blank=False,
         null=False,
         validators=[
             MinLengthValidator(5),
             MaxLengthValidator(200),
+
         ]
     )
     created_at = models.DateTimeField(auto_now_add=True)

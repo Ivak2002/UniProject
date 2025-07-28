@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href={% static 'reset-styles.css' %}/>
-    <link rel="stylesheet" href={% static 'styles.css' %}/>
+    <link rel="stylesheet" href="{% static 'reset-styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>{% block title %}Ivaka Computers{% endblock %}</title>
 </head>
 
 <body class="about-page">
@@ -15,7 +16,7 @@
     <div class="container">
         <div class="wrapper">
             <div class="shadow">
-                <img src="{% static "images/Logo.png" %}" alt="IvakaComputers" class="logo"/>
+                <img src="{% static 'images/Logo.png' %}" alt="IvakaComputers" class="logo"/>
             </div>
             {% if user.is_authenticated %}
                 <nav class="top-nav">
@@ -45,21 +46,26 @@
         </div>
     </div>
 </header>
+
 <section>
     <nav class="nav-container">
-        <a href="#">CPU</a>
-        <a href="#">GPU</a>
+        <a href="{% url 'product-cpu' %}">CPU</a>
+        <a href="{%  url 'product-gpu' %}">GPU</a>
         <a href="#">Motherboards</a>
         <a href="#">RAM</a>
         <a href="#">Built Computers</a>
         <a href="#">HOT DEALS</a>
     </nav>
 </section>
-{% block content %}
-{% endblock %}
+
+<div class="page-content">
+    {% block content %}
+    {% endblock %}
+</div>
+
 <footer class="footer">
     <p>© 2025 Ivaka Computers. All rights reserved.</p>
 </footer>
+<script src="{% static 'menu.js' %}"></script>
 </body>
 </html>
-<script src="{% static 'menu.js' %}"></script>
