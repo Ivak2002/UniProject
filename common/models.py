@@ -8,8 +8,7 @@ class HelpModel(models.Model):
         blank=False,
         null=False,
         validators=[
-            MinLengthValidator(5),
-            MaxLengthValidator(30),
+            MinLengthValidator(5)
         ],
     )
     email = models.EmailField(
@@ -22,7 +21,6 @@ class HelpModel(models.Model):
         null=False,
         validators=[
             MinLengthValidator(5),
-            MaxLengthValidator(200),
 
         ]
     )
