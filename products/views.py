@@ -1,5 +1,5 @@
 from django.views.generic import ListView
-from .models import CPU, GPU, MotherBoard, RAM
+from .models import CPU, GPU, MotherBoard, RAM, BuiltComputers
 
 
 class CPUListView(ListView):
@@ -27,7 +27,7 @@ class RamListView(ListView):
     paginate_by = 6
 
 class BuiltComputersListView(ListView):
-    model = RAM
+    model = BuiltComputers
     template_name = 'built-computers.html'
     context_object_name = 'built_computers'
     paginate_by = 6
