@@ -4,8 +4,8 @@ from django.db import models
 class CPU(models.Model):
     name = models.CharField(max_length=50, validators=[MinLengthValidator(10)], unique=True)
     image = models.URLField()
-    cores = models.PositiveIntegerField(max_length=30)
-    threads = models.PositiveIntegerField(max_length=30)
+    cores = models.PositiveIntegerField()
+    threads = models.PositiveIntegerField()
     cache = models.CharField(max_length=50)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)

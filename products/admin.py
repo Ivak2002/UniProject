@@ -66,7 +66,7 @@ class MotherBoardAdmin(admin.ModelAdmin):
 @admin.register(BuiltComputers)
 class BuiltComputersAdmin(admin.ModelAdmin):
     list_display = ('name', 'image', 'ram', 'gpu', 'motherboard', 'cpu', 'box', 'storage', 'price')
-    list_editable = ('name', 'image', 'ram', 'gpu', 'motherboard', 'cpu', 'box', 'storage', 'price')
+    list_editable = ('image', 'ram', 'gpu', 'motherboard', 'cpu', 'box', 'storage', 'price')
     search_fields = ('name','price', 'ram', 'gpu', 'motherboard', 'cpu', 'storage', 'ram')
 
     fieldsets = (
