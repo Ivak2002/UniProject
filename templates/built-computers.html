@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container border">
         <article>
-            <section class="section-one product-section">
+            <section class="section-one product-section computer-section">
                 {% for computer in built_computers %}
                     <div class="item">
                         <h3>{{ computer.name }}</h3>
@@ -15,7 +15,6 @@
                                 <li>GPU: {{ computer.gpu }}</li>
                                 <li>MOTHERBOARD: {{ computer.motherboard }}</li>
                                 <li>CPU: {{ computer.cpu }}</li>
-                                <li>BOX: {{ computer.box }}</li>
                                 <li>STORAGE: {{ computer.storage }}</li>
                             </div>
                             <div>

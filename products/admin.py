@@ -35,8 +35,8 @@ class GPUAdmin(admin.ModelAdmin):
 
 @admin.register(RAM)
 class RAMAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image', 'type', 'megahertz', 'frequency', 'price')
-    list_editable = ('price', 'type', 'megahertz', 'frequency', 'image')
+    list_display = ('name', 'image', 'type', 'size', 'frequency', 'price')
+    list_editable = ('price', 'type', 'size', 'frequency', 'image')
     search_fields = ('name','price', 'type')
 
     fieldsets = (
@@ -44,7 +44,7 @@ class RAMAdmin(admin.ModelAdmin):
             'fields': ('name', 'image', 'price')
         }),
         ('Specs', {
-            'fields': ('frequency', 'megahertz', 'type')
+            'fields': ('frequency', 'size', 'type')
         }),
     )
 
@@ -65,8 +65,8 @@ class MotherBoardAdmin(admin.ModelAdmin):
 
 @admin.register(BuiltComputers)
 class BuiltComputersAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image', 'ram', 'gpu', 'motherboard', 'cpu', 'box', 'storage', 'price')
-    list_editable = ('image', 'ram', 'gpu', 'motherboard', 'cpu', 'box', 'storage', 'price')
+    list_display = ('name', 'image', 'ram', 'gpu', 'motherboard', 'cpu', 'storage', 'price')
+    list_editable = ('image', 'ram', 'gpu', 'motherboard', 'cpu', 'storage', 'price')
     search_fields = ('name','price', 'ram', 'gpu', 'motherboard', 'cpu', 'storage', 'ram')
 
     fieldsets = (
@@ -74,7 +74,7 @@ class BuiltComputersAdmin(admin.ModelAdmin):
             'fields': ('name', 'image', 'price')
         }),
         ('Specs', {
-            'fields': ('ram', 'gpu', 'motherboard', 'cpu', 'box', 'storage')
+            'fields': ('ram', 'gpu', 'motherboard', 'cpu',  'storage')
         }),
     )
 
