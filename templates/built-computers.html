@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div class="container border computer-page" >
+    <div class="container border computer-page">
         <article>
             <section class="section-one product-section computer-section">
                 {% for computer in built_computers %}
@@ -19,6 +19,12 @@
                             </div>
                             <div>
                                 <button type="submit">Buy</button>
+                                {% if user.is_staff %}
+                                <div class="admin-buttons">
+                                    <a class="action-btn edit-btn" href="{% url 'computer_edit' computer.id %}">Edit</a>
+                                    <a class="action-btn delete-btn" href="{% url 'computer_delete' computer.id %}">Delete</a>
+                                </div>
+                                {% endif %}
                             </div>
                         </section>
                         <span class="price">Price: {{ computer.price }} €</span>
