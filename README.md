@@ -13,8 +13,8 @@ UniProject is a Django-based web application developed as a final-year universit
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript
-- **Backend**: Python 3.x, Django Framework
-- **Database**: SQLite (default) or PostgreSQL (optional)
+- **Backend**: Python 3.13, Django Framework
+- **Database**: SQLite 
 - **Authentication**: Django's built-in user system
 
 ## 📦 Installation & Setup
