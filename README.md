@@ -40,7 +40,6 @@ pip install -r requirements.txt
 - Sign up or log in with your credentials
 - Browse products, add items to your cart, and simulate a checkout
 - **Staff users** can:
-  - Add new products
   - Edit existing listings
   - Delete products from the catalog
 - **Admin users** manage everything via Django’s admin dashboard
