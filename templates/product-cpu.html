@@ -17,7 +17,15 @@
                             </div>
 
                             <div>
-                                <button type="submit">Buy</button>
+                                {% if user.is_authenticated %}
+                                    <form action="{% url 'order-profile' %}" method="get">
+                                {% else %}
+                                    <form action="{% url 'order-no-profile' %}" method="get">
+                                {% endif %}
+                                <input type="hidden" name="name" value="{{ cpu.name }}">
+                                <input type="hidden" name="price" value="{{ cpu.price }}">
+                                <button type="submit" class="btn-class">Buy</button>
+                                </form>
                                 {% if user.is_staff %}
                                     <div class="admin-buttons">
                                         <a class="action-btn edit-btn" href="{% url 'cpu_edit' cpu.id %}">Edit</a>

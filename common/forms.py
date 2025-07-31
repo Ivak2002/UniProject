@@ -1,5 +1,6 @@
 from django import forms
-from .models import HelpModel
+from .models import HelpModel, OrderNoProfileModel, OrderProfileModel
+
 
 class HelpForm(forms.ModelForm):
     class Meta:
@@ -14,3 +15,24 @@ class HelpForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].widget.attrs['readonly'] = True
+
+class OrderNoProfileForm(forms.ModelForm):
+    class Meta:
+        model = OrderNoProfileModel
+        fields = ['product', 'telephone_number', 'price']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['product'].widget.attrs['readonly'] = True
+        self.fields['price'].widget.attrs['readonly'] = True
+
+class OrderProfileForm(forms.ModelForm):
+    class Meta:
+        model = OrderProfileModel
+        fields = ['product', 'telephone_number','email','first_name','last_name','delivery_choices','address', 'price']
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['product'].widget.attrs['readonly'] = True
+        self.fields['price'].widget.attrs['readonly'] = True

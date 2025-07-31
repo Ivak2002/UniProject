@@ -1,9 +1,10 @@
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from .models import HelpModel
-from .forms import HelpForm
+from .models import HelpModel, OrderNoProfileModel, OrderProfileModel
+from .forms import HelpForm, OrderNoProfileForm, OrderProfileForm
 from django.views.generic import TemplateView
+from django.shortcuts import redirect
 
 class HomeView(TemplateView):
     template_name = 'home.html'
@@ -26,3 +27,53 @@ class HelpView(LoginRequiredMixin, CreateView):
         form.instance.current_sender = self.request.user
         form.instance.email = self.request.user.email
         return super().form_valid(form)
+
+
+class NoProfileOrderView(CreateView):
+    model = OrderNoProfileModel
+    form_class = OrderNoProfileForm
+    template_name = 'order-no-profile.html'
+    success_url = reverse_lazy('home')
+
+    def get_initial(self):
+        initial = super().get_initial()
+        product = self.request.GET.get('name')
+        price = self.request.GET.get('price')
+        if product:
+            initial['product'] = product
+        if price:
+            initial['price'] = price
+        return initial
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('order-profile')
+        return super().dispatch(request, *args, **kwargs)
+
+class ProfileOrderView(CreateView):
+    model = OrderProfileModel
+    form_class = OrderProfileForm
+    template_name = 'order-profile.html'
+    success_url = reverse_lazy('home')
+
+    def get_initial(self):
+        initial = super().get_initial()
+        product = self.request.GET.get('name')
+        price = self.request.GET.get('price')
+        initial['email'] = self.request.user.email
+        initial['first_name'] = self.request.user.first_name
+        initial['last_name'] = self.request.user.last_name
+        if product:
+            initial['product'] = product
+        if price:
+            initial['price'] = price
+        return initial
+
+    def form_valid(self, form):
+        form.instance.logged_user= self.request.user
+        form.instance.email = self.request.user.email
+        form.instance.first_name = self.request.user.first_name
+        form.instance.last_name = self.request.user.last_name
+        return super().form_valid(form)
+
+

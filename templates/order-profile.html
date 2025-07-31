@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <title>Order Form</title>
+
+    <form method="POST" class="form-container">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="{{ form.product.id_for_label }}">Product</label>
+                {{ form.product }}
+                {% if form.product.errors %}
+                    <div class="form-error">{{ form.product.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.price.id_for_label }}">Price</label>
+                {{ form.price }}
+                {% if form.price.errors %}
+                    <div class="form-error">{{ form.price.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="form-error">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                {{ form.first_name }}
+                {% if form.first_name.errors %}
+                    <div class="form-error">{{ form.first_name.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                {{ form.last_name }}
+                {% if form.last_name.errors %}
+                    <div class="form-error">{{ form.last_name.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.delivery_choices.id_for_label }}">Delivery Choice</label>
+                {{ form.delivery_choices }}
+                {% if form.delivery_choices.errors %}
+                    <div class="form-error">{{ form.delivery_choices.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="{{ form.address.id_for_label }}">Address</label>
+                {{ form.address }}
+                {% if form.address.errors %}
+                    <div class="form-error">{{ form.address.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.telephone_number.id_for_label }}">Telephone Number</label>
+                {{ form.telephone_number }}
+                {% if form.telephone_number.errors %}
+                    <div class="form-error">{{ form.telephone_number.errors }}</div>
+                {% endif %}
+            </div>
+        </div>
+        <button type="submit">Order</button>
+    </form>
+{% endblock %}
