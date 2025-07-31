@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 
-
 :root {
     --accent-green: #00ff80;
 }
@@ -307,7 +306,7 @@ h2, h3, p, li, a, .price {
     position: fixed;
     top: 70px;
     right: 60px;
-    display:none;
+    display: none;
     background-color: var(--accent-green);
     color: black;
     font-size: 24px;
@@ -513,3 +512,42 @@ h2, h3, p, li, a, .price {
     box-shadow: 0 0 25px rgba(0, 255, 0, 0.3);
 }
 
+.admin-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.action-btn {
+    padding: 0.8em 1.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.6em;
+    text-decoration: none;
+    color: white;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #0284c7;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.edit-btn:hover {
+    background-color: #0369a1;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+}
+
+.delete-btn {
+    background-color: #dc2626;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+.delete-btn:hover {
+    background-color: #b91c1c;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
