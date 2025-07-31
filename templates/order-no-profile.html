@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<title>Order Form</title>
+
+<form method="POST" class="form-container">
+    {% csrf_token %}
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="{{ form.product.id_for_label }}">Product</label>
+            {{ form.product }}
+            {% if form.product.errors %}
+                <div class="form-error">{{ form.product.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.price.id_for_label }}">Price</label>
+            {{ form.price }}
+            {% if form.price.errors %}
+                <div class="form-error">{{ form.price.errors }}</div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.telephone_number.id_for_label }}">Telephone Number</label>
+        {{ form.telephone_number }}
+        {% if form.telephone_number.errors %}
+            <div class="form-error">{{ form.telephone_number.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="form-group buttons">
+        <button type="submit">Order</button>
+    </div>
+</form>
+{% endblock %}
+

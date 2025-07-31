@@ -16,12 +16,20 @@
                                 <li>MEMORY TYPE: {{ gpu.memory_type }}</li>
                             </div>
                             <div>
-                                <button type="submit">Buy</button>
+                                {% if user.is_authenticated %}
+                                    <form action="{% url 'order-profile' %}" method="get">
+                                {% else %}
+                                    <form action="{% url 'order-no-profile' %}" method="get">
+                                {% endif %}
+                                <input type="hidden" name="name" value="{{ gpu.name }}">
+                                <input type="hidden" name="price" value="{{ gpu.price }}">
+                                <button type="submit" class="btn-class">Buy</button>
+                                </form>
                                 {% if user.is_staff %}
-                                <div class="admin-buttons">
-                                    <a class="action-btn edit-btn" href="{% url 'gpu_edit' gpu.id %}">Edit</a>
-                                    <a class="action-btn delete-btn" href="{% url 'gpu_delete' gpu.id %}">Delete</a>
-                                </div>
+                                    <div class="admin-buttons">
+                                        <a class="action-btn edit-btn" href="{% url 'gpu_edit' gpu.id %}">Edit</a>
+                                        <a class="action-btn delete-btn" href="{% url 'gpu_delete' gpu.id %}">Delete</a>
+                                    </div>
                                 {% endif %}
                             </div>
                         </section>
