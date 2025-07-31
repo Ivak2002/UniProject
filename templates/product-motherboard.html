@@ -17,6 +17,12 @@
                             </div>
                             <div>
                                 <button type="submit">Buy</button>
+                                {% if user.is_staff %}
+                                <div class="admin-buttons">
+                                    <a class="action-btn edit-btn" href="{% url 'motherboard_edit' motherboard.id %}">Edit</a>
+                                    <a class="action-btn delete-btn" href="{% url 'motherboard_delete' motherboard.id %}">Delete</a>
+                                </div>
+                                {% endif %}
                             </div>
                         </section>
                         <span class="price">Price: {{ motherboard.price }} €</span>

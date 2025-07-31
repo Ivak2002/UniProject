@@ -49,3 +49,43 @@ class CPUDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = CPU
     template_name = 'cpu_delete.html'
     success_url = reverse_lazy('home')
+class GPUUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+    model = GPU
+    fields = ['name', 'bus', 'memory', 'memory_type', 'image', 'price']
+    template_name = 'gpu_edit.html'
+    success_url = reverse_lazy('home')
+
+class GPUDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
+    model = GPU
+    template_name = 'gpu_delete.html'
+    success_url = reverse_lazy('home')
+class MotherboardUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+    model = MotherBoard
+    fields = ['name', 'platform', 'socket', 'chipset', 'image', 'price']
+    template_name = 'motherboard_edit.html'
+    success_url = reverse_lazy('home')
+
+class MotherboardDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
+    model = MotherBoard
+    template_name = 'motherboard_delete.html'
+    success_url = reverse_lazy('home')
+class RAMUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+    model = RAM
+    fields = ['name', 'type', 'frequency', 'size', 'image', 'price']
+    template_name = 'ram_edit.html'
+    success_url = reverse_lazy('home')
+
+class RAMDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
+    model = RAM
+    template_name = 'ram_delete.html'
+    success_url = reverse_lazy('home')
+class ComputerUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+    model = BuiltComputers
+    fields = ['name', 'ram', 'gpu', 'motherboard','cpu','storage', 'image', 'price']
+    template_name = 'computer_edit.html'
+    success_url = reverse_lazy('home')
+
+class ComputerDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
+    model = BuiltComputers
+    template_name = 'computer_delete.html'
+    success_url = reverse_lazy('home')

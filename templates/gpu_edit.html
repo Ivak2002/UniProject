@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Edit GPU</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-group buttons">
+                <button type="submit">Save Changes</button>
+                <a href="{% url 'product-gpu' %}" class="cancel">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
