@@ -1,6 +1,6 @@
 # 🖥️ UniProject – University E-Commerce Platform
 
-UniProject is a Django-based web application developed as a final-year university project. It simulates a modern online store where users can browse, search, and purchase computers and computer components. The platform showcases full-stack development capabilities using Python and Django.
+UniProject is a Django-based web application developed as final project at Software University (SoftUni). It simulates a modern online store where users can browse, search, and purchase computers and computer components. The platform showcases full-stack development capabilities using Python and Django.
 
 ## 🚀 Features
 
@@ -59,6 +59,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 # 📬 Contact
 
 For questions or feedback, reach out via GitHub Issues or connect through the repository.
-
-python manage.py migrate
-python manage.py runserver
