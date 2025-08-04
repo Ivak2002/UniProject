@@ -5,6 +5,8 @@ from .models import HelpModel, OrderNoProfileModel, OrderProfileModel
 from .forms import HelpForm, OrderNoProfileForm, OrderProfileForm
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
+from django.views import View
+from django.shortcuts import render
 
 class HomeView(TemplateView):
     template_name = 'home.html'
@@ -77,3 +79,16 @@ class ProfileOrderView(CreateView):
         return super().form_valid(form)
 
 
+class CustomPermissionDeniedView(View):
+    def get(self, request, exception=None):
+        return render(request, '403.html', status=403)
+
+class CustomPageNotFoundView(View):
+    def get(self, request, exception=None):
+        return render(request, '404.html', status=404)
+
+def permission_denied_view(request, exception):
+    return CustomPermissionDeniedView.as_view()(request, exception=exception)
+
+def page_not_found_view(request, exception):
+    return CustomPageNotFoundView.as_view()(request, exception=exception)
