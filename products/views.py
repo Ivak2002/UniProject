@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, UpdateView, CreateView, TemplateView
 
 from .forms import CPUForm, GPUForm, RAMForm, MotherboardForm, ComputerForm
-from .mixins import SuperuserRequiredMixin
+from .mixins import SuperuserRequiredMixin, ReadOnlyMixin
 from .models import CPU, GPU, MotherBoard, RAM, BuiltComputers
 
 
@@ -42,17 +42,18 @@ class StaffRequiredMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.is_staff
 
-class CPUUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+class CPUUpdateView(LoginRequiredMixin, StaffRequiredMixin,ReadOnlyMixin, UpdateView):
     model = CPU
     fields = ['name', 'cores', 'threads', 'cache', 'image', 'price']
     template_name = 'cpu_edit.html'
     success_url = reverse_lazy('home')
 
+
 class CPUDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = CPU
     template_name = 'cpu_delete.html'
     success_url = reverse_lazy('home')
-class GPUUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+class GPUUpdateView(LoginRequiredMixin, StaffRequiredMixin,ReadOnlyMixin, UpdateView):
     model = GPU
     fields = ['name', 'bus', 'memory', 'memory_type', 'image', 'price']
     template_name = 'gpu_edit.html'
@@ -62,7 +63,7 @@ class GPUDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = GPU
     template_name = 'gpu_delete.html'
     success_url = reverse_lazy('home')
-class MotherboardUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+class MotherboardUpdateView(LoginRequiredMixin, StaffRequiredMixin,ReadOnlyMixin, UpdateView):
     model = MotherBoard
     fields = ['name', 'platform', 'socket', 'chipset', 'image', 'price']
     template_name = 'motherboard_edit.html'
@@ -72,7 +73,7 @@ class MotherboardDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = MotherBoard
     template_name = 'motherboard_delete.html'
     success_url = reverse_lazy('home')
-class RAMUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+class RAMUpdateView(LoginRequiredMixin, StaffRequiredMixin,ReadOnlyMixin, UpdateView):
     model = RAM
     fields = ['name', 'type', 'frequency', 'size', 'image', 'price']
     template_name = 'ram_edit.html'
@@ -82,7 +83,7 @@ class RAMDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = RAM
     template_name = 'ram_delete.html'
     success_url = reverse_lazy('home')
-class ComputerUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+class ComputerUpdateView(LoginRequiredMixin, StaffRequiredMixin, ReadOnlyMixin,UpdateView):
     model = BuiltComputers
     fields = ['name', 'ram', 'gpu', 'motherboard','cpu','storage', 'image', 'price']
     template_name = 'computer_edit.html'

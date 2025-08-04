@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Admin Panel - Ivaka Computers{% endblock %}
+{% block content %}
+    {% if user.is_authenticated and user.is_superuser %}
+        <section>
+            <h2 class="admin-heading">Admin Controls</h2>
+            <div class="admin-buttons">
+                <a href="{% url 'add_computer' %}" class="admin-btn">Add Computer</a>
+                <a href="{% url 'add_gpu' %}" class="admin-btn">Add GPU</a>
+                <a href="{% url 'add_cpu' %}" class="admin-btn">Add CPU</a>
+                <a href="{% url 'add_ram' %}" class="admin-btn">Add RAM</a>
+                <a href="{% url 'add_motherboard' %}" class="admin-btn">Add Motherboard</a>
+            </div>
+        </section>
+    {% else %}
+        <div class="admin-denied">
+            <p>You do not have permission to view this page.</p>
+        </div>
+    {% endif %}
+{% endblock %}

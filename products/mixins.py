@@ -9,3 +9,11 @@ class SuperuserRequiredMixin(UserPassesTestMixin):
         if self.raise_exception:
             raise PermissionDenied()
         return super().handle_no_permission()
+
+
+class ReadOnlyMixin:
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields['name'].widget.attrs['readonly'] = True
+        form.fields['image'].widget.attrs['readonly'] = True
+        return form
