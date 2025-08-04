@@ -1,8 +1,9 @@
 from django.urls import path
 
 from .views import CPUListView, GPUListView, MotherboardListView, RamListView, BuiltComputersListView, CPUUpdateView, \
-    CPUDeleteView,GPUUpdateView,GPUDeleteView,RAMUpdateView,RAMDeleteView,ComputerUpdateView,ComputerDeleteView,MotherboardUpdateView, \
-    MotherboardDeleteView
+    CPUDeleteView, GPUUpdateView, GPUDeleteView, RAMUpdateView, RAMDeleteView, ComputerUpdateView, ComputerDeleteView, \
+    MotherboardUpdateView, \
+    MotherboardDeleteView, AddProductView, AddCPUView, AddGPUView, AddRAMView, AddMotherBoardView, AddComputerView
 
 urlpatterns = [
     path('cpu/', CPUListView.as_view(), name='product-cpu'),
@@ -20,5 +21,11 @@ urlpatterns = [
     path('computer/<int:pk>/delete/', ComputerDeleteView.as_view(), name='computer_delete'),
     path('motherboard/<int:pk>/edit/', MotherboardUpdateView.as_view(), name='motherboard_edit'),
     path('motherboard/<int:pk>/delete/', MotherboardDeleteView.as_view(), name='motherboard_delete'),
+    path('add-product/', AddProductView.as_view(), name='add_product'),
+    path('add-product/cpu/', AddCPUView.as_view(), name='add_cpu'),
+    path('add-product/gpu/', AddGPUView.as_view(), name='add_gpu'),
+    path('add-product/ram/', AddRAMView.as_view(), name='add_ram'),
+    path('add-product/motherboard/', AddMotherBoardView.as_view(), name='add_motherboard'),
+    path('add-product/computer/', AddComputerView.as_view(), name='add_computer'),
 
 ]

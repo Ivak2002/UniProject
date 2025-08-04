@@ -18,7 +18,24 @@
             <div class="shadow">
                 <img src="{% static 'images/Logo.png' %}" alt="IvakaComputers" class="logo"/>
             </div>
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and user.is_superuser %}
+                <nav class="top-nav">
+                    <a href="{% url 'home' %}">Home</a>
+                    <a href="{% url 'help' %}">Help</a>
+                    <a href="{% url 'about' %}">About Us</a>
+                    <a href="{% url 'add_product' %}">Add Product</a>
+                    <div class="user-menu" id="userMenu">
+                        <i class="fas fa-user-circle fa-3x"></i>
+                        <div class="user-menu-content" id="userMenuContent">
+                            <a href="{% url 'profile' %}">Settings</a>
+                            <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <button type="submit">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            {% elif user.is_authenticated %}
                 <nav class="top-nav">
                     <a href="{% url 'home' %}">Home</a>
                     <a href="{% url 'help' %}">Help</a>

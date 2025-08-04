@@ -1,6 +1,9 @@
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DeleteView, UpdateView
+from django.views.generic import ListView, DeleteView, UpdateView, CreateView, TemplateView
+
+from .forms import CPUForm, GPUForm, RAMForm, MotherboardForm, ComputerForm
+from .mixins import SuperuserRequiredMixin
 from .models import CPU, GPU, MotherBoard, RAM, BuiltComputers
 
 
@@ -88,4 +91,37 @@ class ComputerUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
 class ComputerDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = BuiltComputers
     template_name = 'computer_delete.html'
+    success_url = reverse_lazy('home')
+
+class AddProductView(LoginRequiredMixin, SuperuserRequiredMixin, TemplateView):
+    template_name = 'add_product.html'
+
+class AddCPUView(LoginRequiredMixin, SuperuserRequiredMixin, CreateView):
+    model = CPU
+    template_name = 'add_cpu.html'
+    form_class = CPUForm
+    success_url = reverse_lazy('home')
+
+class AddGPUView(LoginRequiredMixin, SuperuserRequiredMixin, CreateView):
+    model = GPU
+    template_name = 'add_gpu.html'
+    form_class = GPUForm
+    success_url = reverse_lazy('home')
+
+class AddRAMView(LoginRequiredMixin, SuperuserRequiredMixin, CreateView):
+    model = RAM
+    template_name = 'add_ram.html'
+    form_class = RAMForm
+    success_url = reverse_lazy('home')
+
+class AddMotherBoardView(LoginRequiredMixin, SuperuserRequiredMixin, CreateView):
+    model = MotherBoard
+    template_name = 'add_motherboard.html'
+    form_class = MotherboardForm
+    success_url = reverse_lazy('home')
+
+class AddComputerView(LoginRequiredMixin, SuperuserRequiredMixin, CreateView):
+    model = BuiltComputers
+    template_name = 'add_computer.html'
+    form_class = ComputerForm
     success_url = reverse_lazy('home')
