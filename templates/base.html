@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="{% static 'reset-styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'responsive.css' %}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>{% block title %}Ivaka Computers{% endblock %}</title>
 </head>
@@ -18,8 +19,13 @@
             <div class="shadow">
                 <img src="{% static 'images/Logo.png' %}" alt="IvakaComputers" class="logo"/>
             </div>
+
+            <button id="topNavBurger" class="burger-btn" aria-label="Toggle top menu">
+                <i class="fas fa-bars fa-2x"></i>
+            </button>
+
             {% if user.is_authenticated and user.is_superuser %}
-                <nav class="top-nav">
+                <nav class="top-nav" id="topNavMenu">
                     <a href="{% url 'home' %}">Home</a>
                     <a href="{% url 'help' %}">Help</a>
                     <a href="{% url 'about' %}">About Us</a>
@@ -36,7 +42,7 @@
                     </div>
                 </nav>
             {% elif user.is_authenticated %}
-                <nav class="top-nav">
+                <nav class="top-nav" id="topNavMenu">
                     <a href="{% url 'home' %}">Home</a>
                     <a href="{% url 'help' %}">Help</a>
                     <a href="{% url 'about' %}">About Us</a>
@@ -52,7 +58,7 @@
                     </div>
                 </nav>
             {% else %}
-                <nav class="top-nav">
+                <nav class="top-nav" id="topNavMenu">
                     <a href="{% url 'home' %}">Home</a>
                     <a href="{% url 'help' %}">Help</a>
                     <a href="{% url 'about' %}">About Us</a>
@@ -64,7 +70,11 @@
 </header>
 
 <section>
-    <nav class="nav-container">
+    <button id="productNavBurger" class="burger-btn" aria-label="Toggle product menu">
+        <i class="fas fa-bars fa-2x"></i>
+    </button>
+
+    <nav class="nav-container" id="productNavMenu">
         <a href="{% url 'product-cpu' %}">CPU</a>
         <a href="{% url 'product-gpu' %}">GPU</a>
         <a href="{% url 'product-motherboard' %}">Motherboards</a>
@@ -81,6 +91,7 @@
 <footer class="footer">
     <p>© 2025 Ivaka Computers. All rights reserved.</p>
 </footer>
+
 <script src="{% static 'menu.js' %}"></script>
 </body>
 </html>
