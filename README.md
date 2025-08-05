@@ -67,7 +67,7 @@ python manage.py runserver
 
 🛠️ Staff users can edit or remove product listings
 
-🧑‍💼 Admins have complete oversight via Django admin panel
+🧑‍💼 Admins have complete control of the products listings
 
 ---
 
