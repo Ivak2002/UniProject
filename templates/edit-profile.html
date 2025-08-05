@@ -1,45 +1,51 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="form-container shadow">
-  <h2>Edit Profile</h2>
-  <form method="post">
-    {% csrf_token %}
-    <div class="form-row">
-      <div class="form-group">
-        <label for="{{ form.username.id_for_label }}">Username:</label>
-        {{ form.username }}
-      </div>
-      <div class="form-group">
-        <label for="{{ form.first_name.id_for_label }}">First Name:</label>
-        {{ form.first_name }}
-      </div>
-      <div class="form-group">
-        <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
-        {{ form.last_name }}
-      </div>
-      <div class="form-group">
-        <label for="{{ form.email.id_for_label }}">Email:</label>
-        {{ form.email }}
-      </div>
-    </div>
+    {% if user.is_authenticated %}
+        <div class="form-container shadow">
+            <h2>Edit Profile</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="{{ form.username.id_for_label }}">Username:</label>
+                        {{ form.username }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+                        {{ form.last_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">Email:</label>
+                        {{ form.email }}
+                    </div>
+                </div>
 
-    <div class="form-group" style="flex: 1 1 100%;">
-      <label for="{{ form.bio.id_for_label }}">Bio:</label>
-      {{ form.bio }}
-    </div>
+                <div class="form-group" style="flex: 1 1 100%;">
+                    <label for="{{ form.bio.id_for_label }}">Bio:</label>
+                    {{ form.bio }}
+                </div>
 
-    <div class="form-group">
-      <label for="{{ form.birth_date.id_for_label }}">Birth Date:</label>
-      {{ form.birth_date }}
-    </div>
+                <div class="form-group">
+                    <label for="{{ form.birth_date.id_for_label }}">Birth Date:</label>
+                    {{ form.birth_date }}
+                </div>
 
-    <div class="form-group buttons" style="margin-top: 1em">
-      <button type="submit">Save Changes</button>
-      <a href="{% url 'profile' %}">
-        <button type="button">Cancel</button>
-      </a>
-    </div>
-  </form>
-</div>
+                <div class="form-group buttons" style="margin-top: 1em">
+                    <button type="submit">Save Changes</button>
+                    <a href="{% url 'profile' %}">
+                        <button type="button">Cancel</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    {% else %}
+        <div class="admin-denied">
+            <p>You do not have permission to view this page.</p>
+        </div>
+    {% endif %}
 {% endblock %}
