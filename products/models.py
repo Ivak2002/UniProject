@@ -19,8 +19,8 @@ class GPU(models.Model):
     name = models.CharField(max_length=50, validators=[MinLengthValidator(10)], unique=True)
     image = models.URLField()
     bus = models.CharField(max_length=15, validators=[MinLengthValidator(5)])
-    memory = models.CharField(max_length=15, validators=[MinLengthValidator(5)])
-    memory_type = models.CharField(max_length=15, validators=[MinLengthValidator(5)])
+    memory = models.CharField(max_length=15, validators=[MinLengthValidator(4)])
+    memory_type = models.CharField(max_length=15, validators=[MinLengthValidator(4)])
     price = models.DecimalField(max_digits=8, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
 
