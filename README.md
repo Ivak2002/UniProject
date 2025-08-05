@@ -6,7 +6,7 @@ UniProject is a Django-based web application built as part of a final project at
 
 ## 🚀 Features
 
-- 🛒 Browse and search products (computers, peripherals, and components)  
+- 🛒 Browse and search products (computers and components)  
 - 👤 Secure user registration and login via Django  
 - 🧰 Product management for staff users  
 - 🧑‍💻 Admin dashboard with full backend control  
@@ -61,7 +61,7 @@ python manage.py runserver
 
 🔐 Register or log in to your user account
 
-🖱️ Browse the catalog and add products to your cart
+🖱️ Browse the catalog and purchase them
 
 🧮 Simulate checkout and cart updates
 
