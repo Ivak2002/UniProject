@@ -21,9 +21,10 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # Allowed hosts for production
 ALLOWED_HOSTS = [
-    '127.0.0.1'
+    '127.0.0.1',
+    'ivakacomputers.ivakar.site'
 ]
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'https://ivakacomputers.ivakar.site']
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
