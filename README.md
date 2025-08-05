@@ -57,7 +57,8 @@ python manage.py runserver
 
 ---
 
-📄 Usage Guide
+## 📄 Usage Guide
+
 🔐 Register or log in to your user account
 
 🖱️ Browse the catalog and add products to your cart
@@ -72,24 +73,26 @@ python manage.py runserver
 
 ---
 
-🎓 Project Purpose
+## 🎓 Project Purpose
 This project was created as an educational final assignment to showcase web development capabilities. It serves as a full-stack example for managing user accounts, dynamic product listings, and secure admin workflows in Django.
 
 ---
 
-📢 Contributing
+## 📢 Contributing
 This is an academic portfolio project and currently not open to public contributions. Feel free to fork it for learning purposes or personal experimentation.
 
 ---
 
-⚖️ License
+## ⚖️ License
 Licensed under the MIT License — see the LICENSE file for more details.
 
 ---
 
-Questions or feedback? Open a GitHub Issue or get in touch through the repository: 🔗 https://github.com/Ivak2002/UniProject
+## 📬 Contact
 
----
+Questions or feedback? Open a GitHub Issue or get in touch through the repository:  
+🔗 [https://github.com/Ivak2002/UniProject](https://github.com/Ivak2002/UniProject)
+
 ---
 
 ## 🌐 Live Demo
