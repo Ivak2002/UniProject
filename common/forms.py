@@ -36,3 +36,5 @@ class OrderProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['product'].widget.attrs['readonly'] = True
         self.fields['price'].widget.attrs['readonly'] = True
+        self.fields['first_name'].widget.attrs['readonly'] = True
+        self.fields['last_name'].widget.attrs['readonly'] = True
